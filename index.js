@@ -26,7 +26,7 @@ app.get("/datauser", (req, res) => {
 
 app.get("/datausers/:username", (req, res) => {
   const datauser = datausers.find((e) => e.username === +req.params.username);
-  res.status(200).json(article);
+  res.status(200).json(datauser);
 });
 
 app.post("/register", (req, res) => {
