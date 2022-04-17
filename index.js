@@ -1,9 +1,10 @@
 const express = require("express");
+const fs = require("fs");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const gameRouter = require("./game");
 const accountRouter = require("./account");
-const users = require("./data");
+const datausers = require("./data");
 const app = express();
 
 const port = 8080;
@@ -19,9 +20,28 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-// app.get("/register", (req, res) => {
-//   res.render("register");
-// });
+app.get("/datauser", (req, res) => {
+  res.json(datausers);
+});
+
+app.post("/register", (req, res) => {
+  const username = req.body.username;
+  const email = req.body.email;
+  const password = req.body.password;
+
+  datausers.push({
+    username,
+    email,
+    password,
+  });
+  console.log(datausers);
+  fs.writeFileSync("./data.json", JSON.stringify(datausers));
+  res.redirect("/account/login");
+});
+
+app.get("/data-peserta", (req, res) => {
+  res.json(peserta);
+});
 
 app.use("/game", gameRouter);
 app.use("/account", accountRouter);
