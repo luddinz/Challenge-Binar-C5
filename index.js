@@ -24,6 +24,11 @@ app.get("/datauser", (req, res) => {
   res.json(datausers);
 });
 
+app.get("/datausers/:username", (req, res) => {
+  const datauser = datausers.find((e) => e.username === +req.params.username);
+  res.status(200).json(article);
+});
+
 app.post("/register", (req, res) => {
   const username = req.body.username;
   const email = req.body.email;
