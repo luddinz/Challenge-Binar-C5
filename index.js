@@ -24,8 +24,8 @@ app.get("/datauser", (req, res) => {
   res.json(datausers);
 });
 
-app.get("/datausers/:username", (req, res) => {
-  const datauser = datausers.find((e) => e.username === +req.params.username);
+app.get("/datauser/:username", (req, res) => {
+  const datauser = datausers.find((i) => i.username === +req.params.username);
   res.status(200).json(datauser);
 });
 
