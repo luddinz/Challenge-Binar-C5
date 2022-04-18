@@ -92,6 +92,14 @@ app.delete("/datausers/:username", (req, res) => {
   });
 });
 
+// login
+app.post("/login", (req, res) => {
+  //Destructuring
+  const { email, password } = req.body;
+
+  res.send('LOGIN: POST /login, logged in as "' + req.body.email + '"');
+});
+
 app.use("/game", gameRouter);
 app.use("/account", accountRouter);
 
