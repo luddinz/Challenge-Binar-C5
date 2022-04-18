@@ -33,9 +33,7 @@ app.get("/datausers/:username", (req, res) => {
 
 // add data from login page
 app.post("/register", (req, res) => {
-  const username = req.body.username;
-  const email = req.body.email;
-  const password = req.body.password;
+  const { username, email, password } = req.body;
 
   datausers.push({
     username,
@@ -50,9 +48,7 @@ app.post("/register", (req, res) => {
 //add data from postman
 app.post("/datausers", (req, res) => {
   // Destructuring
-  const username = req.body.username;
-  const email = req.body.email;
-  const password = req.body.password;
+  const { username, email, password } = req.body;
 
   const datauser = {
     username,
