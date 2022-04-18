@@ -20,15 +20,18 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/datauser", (req, res) => {
+// read all data
+app.get("/datausers", (req, res) => {
   res.json(datausers);
 });
 
-app.get("/datauser/:username", (req, res) => {
-  const datauser = datausers.find((i) => i.username === +req.params.username);
+// read data by username
+app.get("/datausers/:username", (req, res) => {
+  const datauser = datausers.find((i) => i.username === req.params.username);
   res.status(200).json(datauser);
 });
 
+// add data from login page
 app.post("/register", (req, res) => {
   const username = req.body.username;
   const email = req.body.email;
@@ -44,8 +47,49 @@ app.post("/register", (req, res) => {
   res.redirect("/account/login");
 });
 
-app.get("/data-peserta", (req, res) => {
-  res.json(peserta);
+//add data from postman
+app.post("/datausers", (req, res) => {
+  // Destructuring
+  const username = req.body.username;
+  const email = req.body.email;
+  const password = req.body.password;
+
+  const datauser = {
+    username,
+    email,
+    password,
+  };
+
+  datausers.push(datauser);
+
+  res.status(201).json(datauser);
+});
+
+// edit data
+app.put("/datausers/:username", (req, res) => {
+  // Destructuring
+  const { email, password } = req.body;
+
+  const indexDataUser = datausers.findIndex((i) => i.username === req.params.username);
+
+  datausers[indexDataUser] = {
+    username: req.params.username,
+    email,
+    password,
+  };
+
+  res.status(200).json(datausers[indexDataUser]);
+});
+
+//delete selected data
+app.delete("/datausers/:username", (req, res) => {
+  const indexDataUser = datausers.findIndex((i) => i.username === req.params.username);
+
+  datausers.splice(indexDataUser, 1);
+
+  res.status(200).json({
+    message: `User with username ${req.params.username} has been deleted`,
+  });
 });
 
 app.use("/game", gameRouter);
