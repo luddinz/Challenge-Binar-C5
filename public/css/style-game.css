@@ -1,178 +1,174 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800|Poppins:400,500,700,800");
+
+:root {
+  --bg-full: #9c835f;
+  --back-button: #9c835f;
+  --game-title: #f9b23d;
+  --name-player: #000;
+
+  --playing: #c4c4c4;
+  --bg-result: #4c9654;
+  --versus: #bd0000;
+
+  --bold: 700;
+}
+
+html,
+body {
+  margin: auto;
+  padding: auto;
+  user-select: none;
 }
 
 body {
-  background-color: #9c835f;
-  font-family: "Open Sans";
+  height: 100vh;
+  width: 100%;
+  font-weight: var(--bold);
+  background-color: var(--bg-full);
+  font-family: "Open Sans", sans-serif;
+}
+
+header {
+  display: flex;
+  margin: 30px 0 0 30px;
+}
+
+a {
+  color: #724c21;
+  text-decoration: none;
+}
+a:hover {
+  background-color: gold;
+  border-radius: 150px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  margin-left: 27px;
+}
+
+.icon h1 {
+  margin-left: 20px;
+  font-size: 1.5em;
+  width: 100%;
+}
+
+section {
+  margin: 5px auto;
+}
+
+.game-area {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+  text-align: center;
+}
+
+.player-name {
+  font-size: 36px;
+}
+
+.allignK {
+  width: 100%;
+}
+
+.user-tool img {
+  width: 70%;
 }
 
 button {
-  border: none;
+  background-color: Transparent;
+  border-color: transparent;
+  width: 30%;
+  height: 120px;
 }
 
-.batu-p1,
-.kertas-p1,
-.gunting-p1 {
-  width: 180px;
-  height: 180px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  /* border: 1px solid aqua; */
-  background-color: transparent;
-  background-repeat: no-repeat;
+.your-tool {
   cursor: pointer;
-  overflow: hidden;
-  outline: none;
-  transition: transform 0.5s;
 }
 
-.batubot,
-.kertasbot,
-.guntingbot {
-  width: 180px;
-  height: 180px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  overflow: hidden;
-  outline: none;
+.your-tool:hover {
+  transform: rotate(45deg);
+  animation-name: buttonAnimate;
+  animation-duration: 1.5s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
 }
 
-.batu-p1:hover,
-.kertas-p1:hover,
-.gunting-p1:hover {
-  -ms-transform: scale(1.2);
-  -webkit-transform: scale(1.2);
-  transform: scale(1.1);
-  border-radius: 15px;
+.Versus-Reset {
+  margin: 20px 10px;
 }
 
-.container {
-  width: 800px;
-  height: 98vh;
-  display: flex;
-  justify-content: space-between;
-  margin: auto;
+.Versus-Reset h1 {
+  font-size: 44px;
+  color: var(--versus);
+  font-weight: var(--bold);
 }
 
-.judul {
-  position: absolute;
-  width: 410px;
-  height: 62px;
-  left: 218px;
-  top: 40px;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 49px;
-  text-align: center;
-  color: #f9b23d;
+.Versus-Reset img {
 }
 
-.logo {
-  position: absolute;
-  width: 72px;
-  height: 72px;
-  left: 150px;
-  top: 50px;
-  text-align: center;
+.chosen {
+  background-color: #c4c4c4;
+  border-radius: 30px;
+}
+.boxR {
 }
 
-#home {
-  position: absolute;
-  width: 55px;
-  height: 87px;
-  left: 100px;
-  top: 30px;
-  color: #724c21;
-  font-family: "Open Sans";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 72px;
-  line-height: 98px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-.tangan-p1,
-.tangan-bot {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-}
-
-.ulang-game {
-  position: fixed;
-  text-align: center;
-  left: 50%;
-  top: 90%;
-  background-color: transparent;
-  cursor: pointer;
-  overflow: hidden;
-  outline: none;
-  transform: translate(-50%, -50%);
-}
-
-.infogame {
-  width: 300px;
-  position: fixed;
-  text-align: center;
-  left: 50%;
-  top: 50%;
-}
-
-.vs {
-  font-size: 100px;
-  color: #bd0000;
-
-  letter-spacing: 0.1em;
-  position: fixed;
-  text-align: center;
-  font-size: 144px;
-  line-height: 196px;
-  width: 200px;
-  left: 50%;
-  top: 30%;
-  transform: translate(-50%, -50%);
-}
-
-.hasil-game {
-  color: white;
-  align-items: center;
-  display: flex;
-  justify-content: center;
+.winBox {
   height: 100px;
-  margin: auto;
-}
-
-.kotak-hasil {
-  width: 271.11px;
-  height: 166.93px;
-  left: 43%;
-  top: 40%;
+  display: grid;
+  place-items: center;
   background: #4c9654;
   border-radius: 10px;
-  transform: rotate(-28.87deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 15px auto;
+  padding: 15px;
 }
 
-.jari-player {
-  background-color: rgba(196, 196, 196, 0.8);
-  border-radius: 15px;
-  padding: 20px;
-  cursor: not-allowed;
-  pointer-events: none;
+.drawBox {
+  height: 100px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  margin: 15px auto;
+  padding: 15px;
+  background: #035b0c;
+  border-radius: 10px;
 }
 
-.disable-pilihan {
-  pointer-events: none;
+@media (min-width: 750px) {
+  .game-area {
+    flex-direction: row;
+    transform: translateX(15%);
+  }
+  .used {
+    display: flex;
+    flex-direction: column;
+  }
+  .user-tool {
+    align-self: center;
+    width: 223px;
+    height: 204px;
+  }
+  .user-tool img {
+    width: 50%;
+  }
+  .Versus-Reset img {
+    width: 50px;
+    transform: translatey(100%);
+  }
+  .Versus-Reset {
+    margin: auto 50px;
+    width: 300px;
+  }
+  .Versus-Reset h1 {
+    font-size: 150px;
+  }
+  .user-choice {
+    margin: auto 5% 0 0;
+  }
+  .Com-Choice {
+    margin: auto 0 0 5%;
+  }
 }

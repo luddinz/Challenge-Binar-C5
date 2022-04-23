@@ -20,18 +20,15 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-// read all data
 app.get("/datausers", (req, res) => {
   res.json(datausers);
 });
 
-// read data by username
 app.get("/datausers/:username", (req, res) => {
   const datauser = datausers.find((i) => i.username === req.params.username);
   res.status(200).json(datauser);
 });
 
-// add data from login page
 app.post("/register", (req, res) => {
   const { username, email, password } = req.body;
 
@@ -42,12 +39,10 @@ app.post("/register", (req, res) => {
   });
   console.log(datausers);
   fs.writeFileSync("./data.json", JSON.stringify(datausers));
-  res.redirect("/account/login");
+  res.redirect("./views/login.ejs");
 });
 
-//add data from postman
 app.post("/datausers", (req, res) => {
-  // Destructuring
   const { username, email, password } = req.body;
 
   const datauser = {
@@ -61,12 +56,12 @@ app.post("/datausers", (req, res) => {
   res.status(201).json(datauser);
 });
 
-// edit data
 app.put("/datausers/:username", (req, res) => {
-  // Destructuring
   const { email, password } = req.body;
 
-  const indexDataUser = datausers.findIndex((i) => i.username === req.params.username);
+  const indexDataUser = datausers.findIndex(
+    (i) => i.username === req.params.username
+  );
 
   datausers[indexDataUser] = {
     username: req.params.username,
@@ -77,20 +72,19 @@ app.put("/datausers/:username", (req, res) => {
   res.status(200).json(datausers[indexDataUser]);
 });
 
-//delete selected data
 app.delete("/datausers/:username", (req, res) => {
-  const indexDataUser = datausers.findIndex((i) => i.username === req.params.username);
+  const indexDataUser = datausers.findIndex(
+    (i) => i.username === req.params.username
+  );
 
   datausers.splice(indexDataUser, 1);
 
   res.status(200).json({
-    message: `User with username ${req.params.username} has been deleted`,
+    message: `User ${req.params.username} has been deleted`,
   });
 });
 
-// login
 app.post("/login", (req, res) => {
-  //Destructuring
   const { email, password } = req.body;
 
   res.send('LOGIN: POST /login, logged in as "' + req.body.email + '"');

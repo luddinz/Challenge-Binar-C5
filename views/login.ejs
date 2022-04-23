@@ -4,18 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <title>Welcome Back !</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>Indonesia Traditional Game | Login</title>
     <style>
       body {
-        background-image: url("/assets/register-bg.jpg");
+        background-image: url("/assets/main-bg.jpg");
         background-repeat: no-repeat;
         background-size: cover;
       }
 
       label {
         font-size: 24px;
-        line-height: 200%;
+        line-height: 150%;
       }
 
       form {
@@ -42,11 +45,11 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        width: 60%;
+        width: 100%;
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-49%, -49%);
+        transform: translate(-50%, -50%);
       }
 
       .btn {
@@ -58,16 +61,15 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        font-size: 60px;
+        font-size: 50px;
       }
     </style>
   </head>
   <body>
     <div class="container">
       <div class="login-txt">
-        <h1>Welcome Back !</h1>
-        <h4>Enter your details</h4>
-        <h4>New player ? Please Sign Up <a href="/account/register">Here !</a></h4>
+        <h1>Login Page</h1>
+        <h4>Please click<a href="/account/register"> here </a>to Register</h4>
         <a href="/" style="font-size: 16px"><-- Back to Home</a>
       </div>
 
@@ -75,7 +77,6 @@
         <div class="form-group">
           <label>Email address</label>
           <input type="email" class="form-control" placeholder="Enter email" />
-          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
           <label>Password</label>

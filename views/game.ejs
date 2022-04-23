@@ -5,52 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style-game.css" />
-    <title>GunBaKer Game !</title>
+    <title>Indonesia Traditional Game</title>
+    <link rel="icon" href="/assets/logo.png" />
   </head>
   <body>
-    <div class="header">
-      <a href="/" id="home"><</a>
-      <img class="logo" src="./assets/logogame.png" />
-      <h1 class="judul">Rock Papper Scissors</h1>
-    </div>
-
-    <div class="container">
-      <div class="tangan-p1">
-        <h1 class="player-1">Kamu</h1>
-        <button class="batu-p1">
-          <img src="./assets/batu.png" height="100px" />
-        </button>
-        <button class="kertas-p1">
-          <img src="./assets/kertas.png" height="130px" />
-        </button>
-        <button class="gunting-p1">
-          <img src="./assets/gunting.png" height="130px" />
-        </button>
+    <header>
+      <div class="icon">
+        <img src="/assets/logo.png" alt="logo" class="logo" />
+        <h1>ROCK PAPER SCISSORS</h1>
       </div>
+    </header>
 
-      <div class="tangan-bot">
-        <h1 class="player-bot">B-BoT</h1>
-        <button class="batubot">
-          <img src="./assets/batu.png" height="100px" />
-        </button>
-        <button class="kertasbot">
-          <img src="./assets/kertas.png" height="130px" />
-        </button>
-        <button class="guntingbot">
-          <img src="./assets/gunting.png" height="130px" />
-        </button>
+    <section>
+      <div class="game-area">
+        <div class="user-choice">
+          <h1 class="player-name">HUMAN</h1>
+          <div class="used">
+            <button class="user-tool your-tool dissap" id="r-user">
+              <img class="tool" src="/assets/batu.png" alt="batu" />
+            </button>
+            <button class="user-tool your-tool dissap" id="p-user">
+              <img class="tool" src="/assets/kertas.png" alt="kertas" />
+            </button>
+            <button class="user-tool your-tool dissap" id="s-user">
+              <img class="tool" src="/assets/gunting.png" alt="gunting" />
+            </button>
+          </div>
+        </div>
+
+        <div class="Versus-Reset">
+          <div class="boxR" id="box">
+            <h1 id="h1">VS</h1>
+          </div>
+          <div class="refresh">
+            <img id="refresh" src="/assets/refresh.png" />
+          </div>
+        </div>
+
+        <div class="Com-Choice">
+          <h1 class="player-name">COM</h1>
+          <div class="used">
+            <button class="user-tool dissap" id="r-com">
+              <img src="/assets/batu.png" alt="batu" />
+            </button>
+            <button class="user-tool dissap" id="p-com">
+              <img src="/assets/kertas.png" alt="kertas" />
+            </button>
+            <button class="user-tool dissap" id="s-com">
+              <img src="/assets/kertas.png" alt="gunting" />
+            </button>
+          </div>
+        </div>
       </div>
-
-      <h2 class="vs">VS</h2>
-
-      <div class="infogame">
-        <h2 class="hasil-game"></h2>
-      </div>
-
-      <div class="ulang-game" onClick="window.location.reload();">
-        <img class="ulang" src="./assets/refresh.png" width="70px" height="70px" />
-      </div>
-    </div>
-    <script src="./js/script-game.js"></script>
+    </section>
+    <script src="/js/script-game.js"></script>
   </body>
 </html>
